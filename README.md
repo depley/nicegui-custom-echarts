@@ -1,7 +1,7 @@
 # add custom echarts integration to nicegui
 
-How to integrate [Apache ECharts](https://echarts.apache.org/examples/en/index.html) in [NiceGUI](https://nicegui.io), but slightly customized.
-Based on the zauberzeug/nicegui discussion (apache echart always renders twice, why? #4501)[https://github.com/zauberzeug/nicegui/discussions/4501].
+How to integrate [Apache ECharts](https://echarts.apache.org/examples/en/index.html) in [NiceGUI](https://nicegui.io), but slightly customized.<br>
+Based on the zauberzeug/nicegui discussion [apache echart always renders twice, why? #4501](https://github.com/zauberzeug/nicegui/discussions/4501).
 
 ## research
 
@@ -25,18 +25,18 @@ Based on the zauberzeug/nicegui discussion (apache echart always renders twice, 
 
 1. setup
 
-    ```ps
+    ```sh
     uv init
     uv add nicegui
     ```
 
 2. create new package `custom_elements` with 1:1 copies of the original echart integration (`nicegui/elements/echart.py`, `nicegui/elements/echart.js`)
-    - `src\custom_elements\my_echart.py` 
-    - `src\custom_elements\my_echart.js`
+    - `src/custom_elements/my_echart.py` 
+    - `src/custom_elements/my_echart.js`
 
 3. install new package editable
 
-    ```ps
+    ```sh
     uv pip install -e .
     ```
 
