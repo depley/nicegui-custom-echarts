@@ -7,7 +7,7 @@ Based on the zauberzeug/nicegui discussion [apache echart always renders twice, 
 
 **TL;DR**: 
  - just subclass ui.element and implement a corresponding Vue component
- - currently echarts is iintegrated mainly via `nicegui/elements/echart.py`, `nicegui/elements/echart.js`
+ - currently echarts is integrated mainly via `nicegui/elements/echart.py`, `nicegui/elements/echart.js`
 
 **how to**
 - [nicegui docs Configuration & Deployment: custom_vue_components](https://nicegui.io/documentation/section_configuration_deployment#custom_vue_components)
