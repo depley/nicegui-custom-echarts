@@ -1,0 +1,19 @@
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+  }
+.code-chart{
+    width: 30%;
+}
+.chart-default{
+    width: 30%; 
+    height: 200px;
+}
+.chart-alt{
+    width: 30%; 
+    height: 210px;
+}

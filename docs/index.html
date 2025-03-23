@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!-- <a href="https://github.com/zauberzeug/nicegui/discussions/4501">apache echart always renders twice, why? #4501</a> -->
+
+    <div class="row">
+      <pre class="code-chart"><code class="language-js">
+  // scatter series with lot of data
+
+  const echartOptions = {
+    xAxis: { type: "value" },
+    yAxis: { type: "value" },
+    series: [{ 
+      type: "scatter", 
+      data: Array.from(
+        { length: 10000 }, (_, i) => [i, i]
+      )
+    }]
+  };
+      </code></pre>
+      <pre class="code-chart"><code class="language-js">
+  // line series with animation
+
+  const echartOptions = {
+    xAxis: {
+      type: "category",
+      data: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    },
+    yAxis: {type: "value"},
+    series: [{
+      type: "line",
+      data: [150, 230, 224, 147, 260] 
+    }],
+    animationDuration: 5000,
+  };
+      </code></pre>
+      <button onClick="window.location.reload();">on page load</button>
+      <button onclick="toggleChartHeight()">on resize</button>
+    </div>
+    <div class="row">
+      <div id="chart11" class="chart-default"></div>
+      <div id="chart12" class="chart-default"></div>
+      <pre><code class="language-js">
+// simple resize observer
+
+const el = document.getElementById("chart-container");
+const chart = echarts.init(el);
+
+const resizeObserver = new ResizeObserver(chart.resize).observe(el);
+
+chart.setOption(echartOptions);
+      </code></pre>
+    </div>
+    <div class="row">
+      <div id="chart21" class="chart-default"></div>
+      <div id="chart22" class="chart-default"></div>
+      <pre><code class="language-js">
+// on_off createResizeObserver
+
+const el = document.getElementById("chart-container");
+const chart = echarts.init(el);
+
+const createResizeObserver = () => {
+  new ResizeObserver(chart.resize).observe(el);
+  chart.off("finished", createResizeObserver);
+};
+chart.on("finished", createResizeObserver);   
+
+chart.setOption(echartOptions);
+      </code></pre>
+    </div>
+    
+    <script src="main.js"></script>
+  </body>
+</html>
