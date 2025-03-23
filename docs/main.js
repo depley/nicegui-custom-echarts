@@ -34,7 +34,7 @@ const el11 = document.getElementById("chart11");
 const chart11 = echarts.init(el11);
 const resizeObserver11 = new ResizeObserver(chart11.resize).observe(el11);
 const chart11_opts = structuredClone(optsNoAnimation);
-chart11_opts.title={subtext:"on load: renders once\non resize: re-renders once"}
+chart11_opts.title={subtext:"works as expected\non load: renders once\non resize: re-renders once"}
 chart11.setOption(chart11_opts);
 // chart11.setOption(optsNoAnimation);
 
@@ -43,7 +43,7 @@ const el12 = document.getElementById("chart12");
 const chart12 = echarts.init(el12);      
 const resizeObserver12 = new ResizeObserver(chart12.resize).observe(el12);
 const chart12_opts = structuredClone(optsWithAnimation);
-chart12_opts.title={subtext:"on load: renders once, **broken animation** \non resize: no re-rendering"}
+chart12_opts.title={subtext:"**something went wrong**\non load: renders once, **broken animation** \non resize: no re-rendering"}
 chart12.setOption(chart12_opts);
 // chart12.setOption(optsWithAnimation);
 
@@ -56,7 +56,7 @@ const createResizeObserver21 = () => {
 };
 chart21.on("finished", createResizeObserver21);
 const chart21_opts = structuredClone(optsNoAnimation);
-chart21_opts.title={subtext:"on load: **renders twice**\non resize: re-renders once"}
+chart21_opts.title={subtext:"**something went wrong**\non load: **renders twice**\non resize: re-renders once"}
 chart21.setOption(chart21_opts);     
 // chart21.setOption(optsNoAnimation);
   
@@ -69,7 +69,7 @@ const createResizeObserver22 = () => {
 };
 chart22.on("finished", createResizeObserver22);      
 const chart22_opts = structuredClone(optsWithAnimation);
-chart22_opts.title={subtext:"on load: renders once, nice animation \non resize: no re-rendering"}
+chart22_opts.title={subtext:"works as expected\non load: renders once, nice animation \non resize: no re-rendering"}
 chart22.setOption(chart22_opts);
 chart22.setOption(optsWithAnimation);
 
