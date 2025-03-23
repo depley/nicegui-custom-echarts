@@ -3,6 +3,8 @@
 How to integrate [Apache ECharts](https://echarts.apache.org/examples/en/index.html) in [NiceGUI](https://nicegui.io), but slightly customized.<br>
 Based on the zauberzeug/nicegui discussion [apache echart always renders twice, why? #4501](https://github.com/zauberzeug/nicegui/discussions/4501).
 
+Example illustrating the problem https://depley.github.io/nicegui-custom-echarts/
+
 ## research
 
 **TL;DR**: 
